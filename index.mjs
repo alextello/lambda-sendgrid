@@ -2,16 +2,14 @@ import sgMail from '@sendgrid/mail';
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export const handler = async (event) => {
-    const { detail } = event.Records[0]; // Assuming a simple event structure
-    console.log(JSON.stringify(event))
-    const { cliente, to, nombre_proceso, texto, subject, preheader } = detail;
+    const { cliente, to, nombre_proceso, texto, subject, preheader } = event;
     const msg = {
         from: 'ethicode.xela@gmail.com', // Reemplaza con la dirección del remitente
         templateId: process.env.EMAIL_TEMPLATE,
         subject: 'Recordatorio GTLEY',
         personalizations: [
             {
-              to: to,
+              to,
               dynamicTemplateData: {
                 preheader,
                 subject,
