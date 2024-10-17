@@ -1,0 +1,11 @@
+{
+  "name": "my-lambda-function",
+  "version": "1.0.0",
+  "description": "My Lambda function",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "aws-sdk": "^2.1279.0",
+    "@sendgrid/mail": "^7.7.0"
+  }
+}
